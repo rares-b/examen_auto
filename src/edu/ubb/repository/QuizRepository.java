@@ -33,8 +33,6 @@ public class QuizRepository {
         List<String> questions = new ArrayList<>();
         List<List<String>> answers = new ArrayList<>();
         List<List<String>> correctAnswers = new ArrayList<>();
-        int nrAnswers = 0;
-        int nrCorrectAnswers = 0;
 
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("L5_map.txt"));
@@ -58,13 +56,6 @@ public class QuizRepository {
         }
         catch (IOException ex) {
             System.out.println("Error reading file");
-        }
-
-        for (List<String> a : answers) {
-            nrAnswers += a.size();
-        }
-        for (List<String> a : correctAnswers) {
-            nrCorrectAnswers += a.size();
         }
 
         RandomQuiz randomQuiz = new RandomQuiz(questions, answers, correctAnswers);

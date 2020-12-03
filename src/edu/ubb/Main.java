@@ -28,7 +28,8 @@ public class Main extends Application {
         launch(args);
         QuizRepository quizRepository = new QuizRepository();
         System.out.println(quizRepository.getQuiz().getQuestions().get(4));
-        System.out.println(quizRepository.getQuiz().getAnswers().get(4));
+        System.out.println(quizRepository.getQuiz().getAnswers().get(4).get(1));
         System.out.println(quizRepository.getQuiz().getCorrectAnswers().get(4));
+        System.out.println(quizRepository.getQuiz().getQuestions().size());
     }
 }
