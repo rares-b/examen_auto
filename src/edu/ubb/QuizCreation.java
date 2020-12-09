@@ -1,4 +1,4 @@
-package edu.ubb.repository;
+package edu.ubb;
 
 import edu.ubb.model.Quiz;
 
@@ -11,11 +11,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class QuizRepository {
+
+public class QuizCreation {
 
     private Quiz quiz;
 
-    public QuizRepository() {
+    public QuizCreation() {
         this.createQuiz();
     }
 
@@ -27,6 +28,9 @@ public class QuizRepository {
         this.quiz = quiz;
     }
 
+    /**
+     * Creates a quiz with random questions.
+     */
     private void createQuiz() {
         String line;
         int currentLine = 1;
@@ -38,12 +42,16 @@ public class QuizRepository {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("L5_map.txt"));
 
             while ((line = bufferedReader.readLine()) != null) {
+
+                // suntem pe linia cu intrebarea
                 if (currentLine % 3 == 1) {
                     questions.add(line);
                 }
+                // linia cu raspunsurile posibile
                 if (currentLine % 3 == 2) {
                     answers.add(Arrays.asList(line.split(";")));
                 }
+                // linia cu raspunsurile corecte
                 if (currentLine % 3 == 0) {
                     correctAnswers.add(Arrays.asList(line.split(";")));
                 }
@@ -58,6 +66,7 @@ public class QuizRepository {
             System.out.println("Error reading file");
         }
 
+        // cream un obiect de tip RandomQuiz care are 26 de intrebari in ordine aleatorie
         RandomQuiz randomQuiz = new RandomQuiz(questions, answers, correctAnswers);
 
         quiz = new Quiz(new Random().nextInt(1000), new Random().nextInt(1000),
@@ -67,7 +76,7 @@ public class QuizRepository {
     }
 
 
-    static class RandomQuiz {
+     static class RandomQuiz {
         List<String> questions = new ArrayList<>();
         List<List<String>> answers = new ArrayList<>();
         List<List<String>> correctAnswers = new ArrayList<>();
@@ -77,17 +86,24 @@ public class QuizRepository {
         public RandomQuiz(List<String> allQuestions, List<List<String>> allAnswers, List<List<String>> allCorrectAnswers) {
             Random random = new Random();
 
+            // luam random 26 de intrebari din fisier
             for (int i = 0; i < 26; i++) {
+
+                // luam un index de intrebare random
                 int randomIndex = random.nextInt(allQuestions.size());
 
+                // adaugam intrebarea, raspunsurile ei si raspunsurile corecte de la indexul obtinut
                 this.questions.add(allQuestions.get(randomIndex));
                 this.answers.add(allAnswers.get(randomIndex));
                 this.correctAnswers.add(allCorrectAnswers.get(randomIndex));
 
+                // stergem elementele din lista mare pentru a nu exista posibilitatea sa pice aceeasi intrebare multiple ori
                 allQuestions.remove(randomIndex);
                 allAnswers.remove(randomIndex);
                 allCorrectAnswers.remove(randomIndex);
             }
+
+            // numaram raspunsurile totale si raspunsurile corecte totale
             for (List<String> a : answers) {
                 nrAnswers += a.size();
             }
