@@ -1,6 +1,4 @@
-package edu.ubb;
-
-import edu.ubb.view.WelcomeWindow;
+import view.WelcomeWindow;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;

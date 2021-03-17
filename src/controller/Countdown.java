@@ -1,7 +1,7 @@
-package edu.ubb;
+package controller;
 
-import edu.ubb.view.FinalWindow;
-import edu.ubb.view.QuizView;
+import view.FinalWindow;
+import view.QuizView;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;

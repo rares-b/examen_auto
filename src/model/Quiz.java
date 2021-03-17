@@ -1,4 +1,4 @@
-package edu.ubb.model;
+package model;
 
 import java.util.List;
 

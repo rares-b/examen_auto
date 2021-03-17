@@ -1,8 +1,8 @@
-package edu.ubb.view;
+package view;
 
-import edu.ubb.Countdown;
-import edu.ubb.QuizCreation;
-import edu.ubb.controller.QuizController;
+import controller.Countdown;
+import controller.QuizCreation;
+import controller.QuizController;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;

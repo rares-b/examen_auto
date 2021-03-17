@@ -1,6 +1,6 @@
-package edu.ubb;
+package controller;
 
-import edu.ubb.model.Quiz;
+import model.Quiz;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -39,7 +39,7 @@ public class QuizCreation {
         List<List<String>> correctAnswers = new ArrayList<>();
 
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("L5_map.txt"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("questions.txt"));
 
             while ((line = bufferedReader.readLine()) != null) {
 

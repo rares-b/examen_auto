@@ -1,9 +1,8 @@
-package edu.ubb.controller;
+package controller;
 
 
-import edu.ubb.QuizCreation;
-import edu.ubb.view.FinalWindow;
-import edu.ubb.view.QuizView;
+import view.FinalWindow;
+import view.QuizView;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.text.Text;
