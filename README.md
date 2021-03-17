@@ -1,3 +1,3 @@
 # Examen Auto
 
-How To Configure: https://www.jetbrains.com/help/idea/javafx.html
+How To Configure JavaFX: https://www.jetbrains.com/help/idea/javafx.html
